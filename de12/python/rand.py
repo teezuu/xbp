@@ -1,3 +1,50 @@
+import japanize_kivy
+import kivy
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+import requests
+# 既存のコードの上部に以下のインポート文を追加します
+from kivy.uix.label import Label
+
+class TransportationApp(App):
+    def build(self):
+        layout = BoxLayout(orientation='vertical')
+        self.result_label = Label(text='', size_hint_y=None, height=44)
+        layout.add_widget(self.result_label)
+        return layout
+
+
+kivy.require('1.11.1')
+
+class TransportationApp(App):
+    def build(self):
+        layout = BoxLayout(orientation='vertical')
+        self.destination_input = TextInput(hint_text='目的地を入力')
+        search_button = Button(text='交通情報を検索', on_press=self.search_transportation)
+        self.result_label = Label(text='', size_hint_y=None, height=44)
+
+        layout.add_widget(self.destination_input)
+        layout.add_widget(search_button)
+        layout.add_widget(self.result_label)
+        return layout
+
+    def search_transportation(self, instance):
+        destination = self.destination_input.text.strip()
+        if destination:
+            # ヤフージャパンのAPIキーを設定
+            api_key = 'YOUR_YAHOO_JAPAN_API_KEY'
+
+            # APIエンドポイント
+            api_url = f'https://map.yahooapis.jp/direction/v1/transit?appid={api_key}&from=&to={destination}&format=json'
+
+            # APIリクエストを送信
+            response = requests.get(api_url)
+
+            if response.status_code == 200:
+                # レスポンスを処理し、結果を取得
+                transportation_info = response.json()
 
 def ant_game():
     print("アリをつぶす？ つぶさない？")

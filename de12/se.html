@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <!-- ⑥↓タイトルを変えてみよう -->
+    <title>python </title>
+    <!-- ⑤スタイルシートの設定をしよう -->
+    <body style=background:linear-gradient></body>
+    <!-- h1.htmlからある行をコピペしてくればOK -->
+</head><link rel="stylesheet" href="./css/style.css">
+<body>
+    <h1>python   </h1>
+    <!-- 塊ごとにdivタグで区切るようにしましょう。 -->
+    <div>
+        <img src="./images/plan.jpg" width="80%"></img><br> 
+         今回グループで考えたのはピンタレストの画像からおおよその旅行プランを立てるというものだ。私は特に乗り換え案内について考えた。
+         コードはデザイン演習のSAの方の知識をお借りした。<!-- ①↓に文字を書いてみよう -->
+ <div>
+    <code>
+        <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">import japanize_kivy</li>
+        <li style="background-color:#EFF;">import urllib.parse</li>
+        <li style="background-color:#EEF;">import kivy</li>
+        <li style="background-color:#EFF;">from kivy.app import App</li>
+        <li style="background-color:#EEF;">from kivy.uix.boxlayout import BoxLayout</li>
+        <li style="background-color:#EFF;">from kivy.uix.textinput import TextInput</li>
+        <li style="background-color:#EEF;">from kivy.uix.button import Button</li>
+        <li style="background-color:#EFF;">import webbrowser</li>
+        <li style="background-color:#EEF;">kivy.require('1.11.1')</li>
+        <li style="background-color:#EFF;">class LinkOpenerApp(App):</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, **kwargs):</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(**kwargs)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.links = []</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;def build(self):</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout = BoxLayout(orientation='vertical')</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.input_text1 = TextInput(</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hint_text='出発駅 ')</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.input_text2= TextInput(</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hint_text='到着駅')</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.add_button = Button(text='create')</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.add_button.bind(on_press=self.add_link)</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout.add_widget(self.input_text1)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout.add_widget(self.input_text2)</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout.add_widget(self.add_button)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self.layout</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def add_link(self, instance):</li>
+        <li style="background-color:#EFF;">&nbsp;</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# エンコードされたキーワードとアカウント名を使用してURLを生成</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search_url =f'https://transit.yahoo.co.jp/search/result?from={self.input_text1}&amp;to={self.input_text2}&amp;fromgid=&amp;togid=&amp;flatlon=%2C%2C23408&amp;tlatlon=%2C%2C23404&amp;via=&amp;viacode=&amp;y=2023&amp;m=11&amp;d=06&amp;hh=22&amp;m1=2&amp;m2=9&amp;type=1&amp;ticket=ic&amp;expkind=1&amp;userpass=1&amp;ws=3&amp;s=0&amp;al=1&amp;shin=1&amp;ex=1&amp;hb=1&amp;lb=1&amp;sr=0'</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webbrowser.open(search_url)</li>
+        <li style="background-color:#EFF;">if __name__ == '__main__':</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;LinkOpenerApp().run()</li>
+        </ol></code>
+   yahoo!乗り換え案内を出発地、到着地を指定することですぐに使えるようにしたかったが、場所の名前が変わるとURLも変化するので、指定の書式をうまく盛り込むことができなかった。
+   <a href="https://atooshi-note.com/python-yahoo-trans-scraping/" target="_blank">参考にさせていただいたサイト</a><br>
+    また、上記サイトも参考にさせていただいた。スクレイピングという行為の仕方には気を付けたい。
+
+    私とは違う方法でグループメンバーが作ってくれた。
+    <a href="https://wataboshi.github.io/xbp/" target="_blank">HANAさん</a><br>
+   
+   以下はグループのまとめ
+    <code>
+        <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+        <li style="background-color:#EFF;">import japanize_kivy</li>
+        <li style="background-color:#EEF;">import kivy</li>
+        <li style="background-color:#EFF;">from kivy.app import App</li>
+        <li style="background-color:#EEF;">from kivy.uix.boxlayout import BoxLayout</li>
+        <li style="background-color:#EFF;">from kivy.uix.textinput import TextInput</li>
+        <li style="background-color:#EEF;">from kivy.uix.button import Button</li>
+        <li style="background-color:#EFF;">import requests</li>
+        <li style="background-color:#EEF;"># 既存のコードの上部に以下のインポート文を追加します</li>
+        <li style="background-color:#EFF;">from kivy.uix.label import Label</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">class TransportationApp(App):</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def build(self):</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout = BoxLayout(orientation='vertical')</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.result_label = Label(text='', size_hint_y=None, height=44)</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout.add_widget(self.result_label)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return layout</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">kivy.require('1.11.1')</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">class TransportationApp(App):</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def build(self):</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout = BoxLayout(orientation='vertical')</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.destination_input = TextInput(hint_text='目的地を入力')</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search_button = Button(text='交通情報を検索', on_press=self.search_transportation)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.result_label = Label(text='', size_hint_y=None, height=44)</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout.add_widget(self.destination_input)</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout.add_widget(search_button)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout.add_widget(self.result_label)</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return layout</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;def search_transportation(self, instance):</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;destination = self.destination_input.text.strip()</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if destination:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# ヤフージャパンのAPIキーを設定</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;api_key = 'YOUR_YAHOO_JAPAN_API_KEY'</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# APIエンドポイント</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;api_url = f'https://map.yahooapis.jp/direction/v1/transit?appid={api_key}&amp;from=&amp;to={destination}&amp;format=json'</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# APIリクエストを送信</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response = requests.get(api_url)</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if response.status_code == 200:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# レスポンスを処理し、結果を取得</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transportation_info = response.json()</li>
+        </ol></code>
+
+        <code>
+            <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+            <li style="background-color:#EFF;">import japanize_kivy</li>
+            <li style="background-color:#EEF;">import urllib.parse</li>
+            <li style="background-color:#EFF;">import kivy</li>
+            <li style="background-color:#EEF;">from kivy.app import App</li>
+            <li style="background-color:#EFF;">from kivy.uix.boxlayout import BoxLayout</li>
+            <li style="background-color:#EEF;">from kivy.uix.textinput import TextInput</li>
+            <li style="background-color:#EFF;">from kivy.uix.button import Button</li>
+            <li style="background-color:#EEF;">import webbrowser</li>
+            <li style="background-color:#EFF;">kivy.require('1.11.1')</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">class HashTagSearchApp(App):</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, **kwargs):</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(**kwargs)</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.hashtags = []</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def build(self):</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout = BoxLayout(orientation='vertical')</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.input_text = TextInput(hint_text='enter a hashtag without "#"')</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.add_button = Button(text='search')</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.add_button.bind(on_press=self.search_hashtag)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout.add_widget(self.input_text)</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout.add_widget(self.add_button)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self.layout</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;def search_hashtag(self, instance):</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hashtag = self.input_text.text.strip()</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if hashtag:</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.hashtags.append(hashtag)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hashtag = urllib.parse.quote(hashtag)  # キーワードをエンコード</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search_url = f'https://www.instagram.com/explore/tags/{hashtag}/'</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webbrowser.open(search_url)</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# ウィンドウを閉じないようにするためのカスタムロジックを追加</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">if __name__ == '__main__':</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;app = HashTagSearchApp()</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;app.run()</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EEF;">import japanize_kivy</li>
+            <li style="background-color:#EFF;">import kivy</li>
+            <li style="background-color:#EEF;">from kivy.app import App</li>
+            <li style="background-color:#EFF;">from kivy.uix.boxlayout import BoxLayout</li>
+            <li style="background-color:#EEF;">from kivy.uix.textinput import TextInput</li>
+            <li style="background-color:#EFF;">from kivy.uix.button import Button</li>
+            <li style="background-color:#EEF;">import requests</li>
+            <li style="background-color:#EEF;">from kivy.uix.label import Label</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">class TransportationApp(App):</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;def build(self):</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout = BoxLayout(orientation='vertical')</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.result_label = Label(text='', size_hint_y=None, height=44)</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout.add_widget(self.result_label)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return layout</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">kivy.require('1.11.1')</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">class TransportationApp(App):</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;def build(self):</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout = BoxLayout(orientation='vertical')</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.destination_input = TextInput(hint_text='目的地を入力')</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search_button = Button(text='交通情報を検索', on_press=self.search_transportation)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.result_label = Label(text='', size_hint_y=None, height=44)</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout.add_widget(self.destination_input)</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout.add_widget(search_button)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout.add_widget(self.result_label)</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return layout</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def search_transportation(self, instance):</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;destination = self.destination_input.text.strip()</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if destination:</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# ヤフージャパンのAPIキーを設定</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;api_key = 'YOUR_YAHOO_JAPAN_API_KEY'</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# APIエンドポイント</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;api_url = f'https://map.yahooapis.jp/direction/v1/transit?appid={api_key}&amp;from=&amp;to={destination}&amp;format=json'</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# APIリクエストを送信</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response = requests.get(api_url)</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if response.status_code == 200:</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# レスポンスを処理し、結果を取得</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transportation_info = response.json()</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EFF;">import japanize_kivy</li>
+            <li style="background-color:#EEF;">import urllib.parse</li>
+            <li style="background-color:#EFF;">import kivy</li>
+            <li style="background-color:#EEF;">from kivy.app import App</li>
+            <li style="background-color:#EFF;">from kivy.uix.boxlayout import BoxLayout</li>
+            <li style="background-color:#EEF;">from kivy.uix.textinput import TextInput</li>
+            <li style="background-color:#EFF;">from kivy.uix.button import Button</li>
+            <li style="background-color:#EEF;">import webbrowser</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">kivy.require('1.11.1')</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">class HotelSearchApp(App):</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, **kwargs):</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(**kwargs)</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def build(self):</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout = BoxLayout(orientation='vertical')</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.location_input = TextInput(hint_text='目的地を入力してください')</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.check_in_input = TextInput(hint_text='チェックイン日（例: 2023-11-04）')</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.check_out_input = TextInput(hint_text='チェックアウト日（例: 2023-11-07）')</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.guests_input = TextInput(hint_text='宿泊人数')</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.rooms_input = TextInput(hint_text='部屋数')</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.search_button = Button(text='検索')</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.search_button.bind(on_press=self.search_hotels)</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout.add_widget(self.location_input)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout.add_widget(self.check_in_input)</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout.add_widget(self.check_out_input)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout.add_widget(self.guests_input)</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout.add_widget(self.rooms_input)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.layout.add_widget(self.search_button)</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self.layout</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;def search_hotels(self, instance):</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;location = self.location_input.text.strip()</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;check_in_date = self.check_in_input.text.strip()</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;check_out_date = self.check_out_input.text.strip()</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guests = self.guests_input.text.strip()</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rooms = self.rooms_input.text.strip()</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if location and check_in_date and check_out_date:</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 実際の宿泊サイトのURLに合わせて調整</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 以下はBooking.comの例</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base_url = 'https://www.booking.com/search.html'</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;query_parameters = {</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ss': location,</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'checkin_monthday': check_in_date.split('-')[2],</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'checkin_year_month': f'{check_in_date.split("-")[0]}-{check_in_date.split("-")[1]}',</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'checkout_monthday': check_out_date.split('-')[2],</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'checkout_year_month': f'{check_out_date.split("-")[0]}-{check_out_date.split("-")[1]}',</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'group_adults': guests,</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'no_rooms': rooms,</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;query_string = urllib.parse.urlencode(query_parameters)</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search_url = f'{base_url}?{query_string}'</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webbrowser.open(search_url)</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">if __name__ == '__main__':</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;app = HotelSearchApp()</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;app.run()</li>
+            </ol></c
+<!-- ②↓に画像（imagesフォルダにあるtest.png）を挿入してみよう -->
+
+         <!-- ③↓に箇条書きをしてみよう -->
+         <!-- ④↓に外部リンクを作ってみよう -->
+         
