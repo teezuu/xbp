@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>lp2マニュアル</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body id="manual">
+
+<div id="container">
+
+
+
+<!--▼▼▼▼▼ここから「ヘッダー」-->
+<header>
+
+<h1 id="logo"><a href="index.html"><img src="../images/logo.png" alt="あなたのサイト名"></a></h1>
+
+<ul id="header-box">
+<li><a href="#">Online Shop</a></li>
+</ul>
+
+</header>
+<!--▲▲▲▲▲ここまで「ヘッダー」-->
+
+
+
+</div>
+<!--/#container-->
+
+
+
+<!--開閉ボタン（ハンバーガーアイコン）-->
+<div id="menubar_hdr">
+<span></span><span></span><span></span>
+</div>
+
+
+
+<!--開閉メニュー-->
+<div id="menubar">
+
+<nav>
+<ul>
+<li><a href="index.html">ホーム</a></li>
+<li><a href="">ドロップダウン</a>
+	<ul>
+	<li><a href="#">メニューメニューメニュー</a></li>
+	<li><a href="#">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
+	</ul>
+</li>
+<li><a href="#">メニュー</a></li>
+<li><a href="#">メニュー</a></li>
+</ul>
+</nav>
+
+<div class="sh">小さな端末でのみ表示させたい情報があれば、ここに記入して下さい。</div>
+
+</div>
+
+
+
+<div class="manual">
+
+<h2>ヘッダーブロック</h2>
+
+<pre class="look">
+&lt;!--▼▼▼▼▼ここから「ヘッダー」--&gt;
+&lt;header&gt;
+
+&lt;h1 id=&quot;logo&quot;&gt;&lt;a href=&quot;index.html&quot;&gt;&lt;img src=&quot;images/logo.png&quot; alt=&quot;あなたのサイト名&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
+
+&lt;ul id=&quot;header-box&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Online Shop&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/header&gt;
+&lt;!--▲▲▲▲▲ここまで「ヘッダー」--&gt;
+</pre>
+
+<h3>主なスタイルは</h3>
+<p>cssフォルダのstyle.cssから「header」でテキスト検索してみて下さい。詳しい解説もあります。</p>
+
+<h3>ロゴ画像</h3>
+<p>サイズ変更はstyle.cssの「#logo img」のwidthの数字で変更できます。<br>
+ロゴ画像のalt=&quot;あなたのサイト名&quot;の部分はあなたのサイト名に入れ替えて下さい。</p>
+
+<h2>ハンバーガーアイコン＆開閉メニューと、SVGアニメーションは、html下部にあります</h2>
+
+<pre class="look">
+&lt;!--開閉ボタン（ハンバーガーアイコン）--&gt;
+&lt;div id=&quot;menubar_hdr&quot;&gt;
+&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+
+
+&lt;!--開閉メニュー--&gt;
+&lt;div id=&quot;menubar&quot;&gt;
+
+&lt;nav&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;index.html&quot;&gt;ホーム&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;ドロップダウン&lt;/a&gt;
+	&lt;ul&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;メニューメニューメニュー&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;メニュー&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;div class=&quot;sh&quot;&gt;小さな端末でのみ表示させたい情報があれば、ここに記入して下さい。&lt;/div&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;!--SVGアニメーション--&gt;
+&lt;svg id=&quot;kazari1&quot; version=&quot;1.1&quot;
+     xmlns=&quot;http://www.w3.org/2000/svg&quot;
+     xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;
+     viewBox=&quot;0 0 1000 1200&quot;&gt;
+  &lt;defs&gt;
+    &lt;mask id=&quot;clipmask&quot; maskUnits=&quot;objectBoundingBox&quot;&gt;
+      &lt;path d=&quot;M895.5-20.5c146.5,303.5-84.9,509.9-342,391-126.5-58.5-119.5-246.5,30.6-227.6,266.8,33.7,312.9,1343.1-658.1,927.1&quot;/&gt;
+    &lt;/mask&gt;
+  &lt;/defs&gt;
+  &lt;image xlink:href=&quot;images/kazari1.svg&quot; width=&quot;100%&quot; height=&quot;100%&quot; mask=&quot;url(#clipmask)&quot;/&gt;
+&lt;/svg&gt;
+
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.6/vivus.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  new Vivus(&#039;kazari1&#039;, {
+    start: &#039;autostart&#039;,
+    type: &#039;scenario-sync&#039;,
+    duration: 200	//速度。大きいほどゆっくりになります。100〜200ぐらいがいい感じかと。
+  });
+&lt;/script&gt;
+</pre>
+
+<h3>主なスタイルは</h3>
+<p>cssフォルダのstyle.cssから「menubar_hdr」や「menubar」や「kazari1」でテキスト検索してみて下さい。詳しい解説もあります。</p>
+
+<h3>ドロップダウンメニューについて</h3>
+<p>ドロップダウンを使う為の特別な設定は不要ですが、必ず親となるli要素の「中」に入れるようにして下さい。</p> 
+<p>OKな例<br>
+<pre class="look">
+<span class="color-check">&lt;li&gt;&lt;a href=&quot;&quot;&gt;親となるメニュー&lt;/a&gt;</span>
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;ドロップダウンのメニュー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;ドロップダウンのメニュー&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+<span class="color-check">&lt;/li&gt;</span>
+</pre>
+</p>
+<p>NGな例<br>
+<pre class="look">
+<span class="color-check">&lt;li&gt;&lt;a href=&quot;&quot;&gt;親となるメニュー&lt;/a&gt;&lt;/li&gt;</span>
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;ドロップダウンのメニュー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;ドロップダウンのメニュー&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+</p>
+
+<h3>開閉メニューを使わない場合は</h3>
+<p>上記コードの、<br>
+<pre class="look">&lt;!--開閉ボタン（ハンバーガーアイコン）--&gt;</pre><br>
+のブロックと、<br>
+<pre class="look">&lt;!--開閉メニュー--&gt;;</pre><br>
+のブロックを削除して下さい。</p>
+<p>ハンバーガーアイコンがなくなると、残ったボタン（Online Shop）の右側が空いてしまうので、<br>
+style.cssの、<br>
+<pre class="look">#header-box {</pre><br>
+の中にある、<br>
+<pre class="look">right: 70px;</pre><br>
+を、<br>
+<pre class="look">right: 0px;</pre><br>
+に変更して下さい。</p>
+
+<h3>SVGアニメーション</h3>
+<p>色変更は、images/kazari1.svgを開いて直接編集して下さい。<br>
+kazari.aiも梱包していますが、こちらはテンプレートで実際に使用するものではなくIllustrator用の素材として梱包しています。</p>
+<p>SVGアニメーションを自作の画像にしたい場合<a href="https://template-party.com/tips/tips20250304_vivus.html" target="_blank">当サイトマニュアルをご覧下さい。</a><br>
+尚、テンプレートのうち、語尾が_animationではなく_bgとついたタイプは背景固定画像タイプになります。お好みの方を選んで下さい。</p>
+
+</div>
+
+
+<!--jQueryの読み込み-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--パララックス（inview）-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+
+<!--このテンプレート専用のスクリプト-->
+<script src="../js/main.js"></script>
+
+<!--SVGアニメーション-->
+<svg id="kazari1" version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1000 1200">
+  <defs>
+    <mask id="clipmask" maskUnits="objectBoundingBox">
+      <path d="M895.5-20.5c146.5,303.5-84.9,509.9-342,391-126.5-58.5-119.5-246.5,30.6-227.6,266.8,33.7,312.9,1343.1-658.1,927.1"/>
+    </mask>
+  </defs>
+  <image xlink:href="../images/kazari1.svg" width="100%" height="100%" mask="url(#clipmask)"/>
+</svg>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.6/vivus.min.js"></script>
+<script>
+  new Vivus('kazari1', {
+    start: 'autostart',
+    type: 'scenario-sync',
+    duration: 200	//速度。大きいほどゆっくりになります。100〜200ぐらいがいい感じかと。
+  });
+</script>
+
+</body>
+</html>

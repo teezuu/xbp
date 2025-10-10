@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>lp2マニュアル</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body id="manual">
+
+
+
+<!--ポップアップ-->
+<section id="popup">
+
+<h2>ポップアップウィンドウ（※５秒後にポップアップが出ます）</h2>
+<p>ポップアップです。同一ページでは一回だけ表示しますがブラウザを閉じて開き直すと再び表示されます。<br>
+ボックスの色やサイズなどはcssで調整できます。ポップアップ出現までの時間はjsで調整できます。</p>
+<span class="close-btn"><i class="fa-solid fa-xmark"></i></span>
+
+</section>
+
+
+
+<div class="manual">
+
+<h2>ポップアップ</h2>
+
+<pre class="look">
+&lt;!--ポップアップ--&gt;
+&lt;section id=&quot;popup&quot;&gt;
+
+&lt;h2&gt;ポップアップウィンドウ&lt;/h2&gt;
+&lt;p&gt;ポップアップです。同一ページでは一回だけ表示しますがブラウザを閉じて開き直すと再び表示されます。&lt;br&gt;
+ボックスの色やサイズなどはcssで調整できます。ポップアップ出現までの時間はjsで調整できます。&lt;/p&gt;
+&lt;span class=&quot;close-btn&quot;&gt;&lt;i class=&quot;fa-solid fa-xmark&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+
+&lt;/section&gt;
+</pre>
+
+<h3>主なスタイルは</h3>
+<p>cssフォルダのstyle.cssから「popup」でテキスト検索してみて下さい。詳しい解説もあります。<br>
+出現するまでの時間は、jsフォルダのmain.jsの「ポップアップ」で変更できます。現状は5秒後にポップアップが開くようになっています。</p>
+
+<h3>同じウィンドウなら一回だけ表示します</h3>
+<p>何度もでると煩わしいので、同一ウィンドウの場合は一回だけ表示されます。<br>
+リロードした場合や、他のページを見て戻ってきた場合は再表示されません。<br>
+ただ、ウィンドウを閉じるてから改めて開くとポップアップは再び出ます。</p>
+<p>サイト製作中にポップアップが出ないと思ったら、一旦ウィンドウを閉じて改めて開き直してみて下さい。</p>
+
+<h3>ポップアップが不要なら</h3>
+<p>このコードごとhtmlから削除して下さい。</p>
+
+</div>
+
+
+<!--jQueryの読み込み-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--パララックス（inview）-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+
+<!--このテンプレート専用のスクリプト-->
+<script src="../js/main.js"></script>
+
+</body>
+</html>
